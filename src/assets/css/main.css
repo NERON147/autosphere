@@ -180,6 +180,11 @@ a:hover {
     margin-right: 120px;
 }
 
+.demo-text {
+    max-width: 430px;
+}
+
+
 .demo-items p {
     cursor: pointer;
 }
@@ -298,7 +303,6 @@ a:hover {
     background-position: 80px -130px;
     background-repeat: no-repeat;
     background-position-x: center;
-
 }
 
 .question-title {

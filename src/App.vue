@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <transition name="scale" mode="out-in">
+    <transition name="fade" mode="out-in" :duration="{ enter: 500, leave: 500 }">
       <router-view></router-view>
     </transition>
   </div> 
@@ -20,11 +20,10 @@ export default {
 <style>
 .scale-enter-active,
 .scale-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.3s;
 }
 .scale-enter-from,
 .scale-leave-to {
   opacity: 0;
-  transform: scale(0.9);
 }
 </style>
