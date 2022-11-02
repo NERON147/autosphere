@@ -43,17 +43,18 @@
 <script>
 export default {
 
+  data() {
+    return {
+      
+    }
+  },
+
 methods: {
    menuOnClick() {
   document.getElementById("menu-bar").classList.toggle("change");
   document.getElementById("nav").classList.toggle("change");
   document.getElementById("menu-bg").classList.toggle("change-bg");
   document.querySelector('body').classList.toggle("scroll-hidden")
-},
-
-closeHamburger() {
-let checkItem = document.getElementById('toggler');
-checkItem.checked = false;
 }
 
 }
