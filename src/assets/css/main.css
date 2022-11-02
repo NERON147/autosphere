@@ -200,7 +200,11 @@ a:hover {
     margin: 0 40px;
 }
 
-.select-item-1 {
+.select-item {
+    margin-left: 15px;
+}
+
+.select-item.active{
     color: rgba(28, 93, 184, 1);
 }
 

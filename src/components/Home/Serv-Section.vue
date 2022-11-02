@@ -12,53 +12,31 @@
         <div class="serv-demo">
           <div class="demo-items">
             <div class="select-demo">
-              <p class="select-item-1" v-on:click="disp('r1')">Бензовозы</p>
-              <p class="select-middle-item" v-on:click="disp('r2')">Негабаритные грузы</p>
-              <p class="select-last-item" v-on:click="disp('r3')">Контейнерные перевозки</p>
+              
+              <p class="select-item" v-for="(item, index) in services" :key="index"
+              :class="{ active : item.active }" @click="changeTab(index)">
+                {{item.title}}
+              </p>
+              <!-- <p class="select-middle-item">Негабаритные грузы</p>
+              <p class="select-last-item">Контейнерные перевозки</p> -->
             </div>
-            <img  src="@/assets/img/section/benz.png" alt="" class="benz"/>
-            <!-- <img id="r2" style="display:none;" src="@/assets/img/section/benz.png" alt="" class="benz"/>
-            <img id="r3" style="display:none;" src="@/assets/img/section/benz.png" alt="" class="benz"/> -->
+            <img :src="getActiveTab.img" alt="" class="benz"/>
           </div>
 
-          <div class="demo-text" id="r1">
-            <div class="demo-text-title">Перевозки бензовозом</div>
+          <div class="demo-text">
+            <div class="demo-text-title">{{getActiveTab.title}}</div>
             <div class="demo-main-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-              necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
-              mollitia soluta iure ratione, culpa aliquid dolorem amet laborum
-              tempora et recusandae. Quasi magni quae soluta omnis eligendi
-              incidunt, modi! Eum, sunt, neque! Perferendis exercitationem, eum
-              nihil voluptatibus inventore suscipit, aliquid aut officiis.
+              {{getActiveTab.descr}}
             </div>
-            <button class="serv-btn">Все наши услуги</button>
-          </div>
-           <div class="demo-text" id="r2" style="display:none;">
-            <div class="demo-text-title">Перевозки каблучком</div>
-            <div class="demo-main-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-              necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
-              mollitia soluta iure ratione, culpa aliquid dolorem amet laborum
-              tempora et recusandae. Quasi magni quae soluta omnis eligendi
-              incidunt, modi! Eum, sunt, neque! Perferendis exercitationem, eum
-              nihil voluptatibus inventore suscipit, aliquid aut officiis.
-            </div>
-            <button class="serv-btn">Все наши услуги</button>
-          </div>
-           <div class="demo-text" id="r3" style="display:none;">
-            <div class="demo-text-title">Перевозки тягачом</div>
-            <div class="demo-main-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
-              necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
-              mollitia soluta iure ratione, culpa aliquid dolorem amet laborum
-              tempora et recusandae. Quasi magni quae soluta omnis eligendi
-              incidunt, modi! Eum, sunt, neque! Perferendis exercitationem, eum
-              nihil voluptatibus inventore suscipit, aliquid aut officiis.
-            </div>
-            <button class="serv-btn">Все наши услуги</button>
+            <router-link tag="a" :to="`/serv/${getActiveTab.link}`">
+              <button class="serv-btn">
+              Все наши услуги
+            </button>
+            </router-link>
           </div>
         </div>
       </div>
+     
 
       <section>
         <div class="meet-wrapper">
@@ -121,9 +99,48 @@ import More from "@/components/Home/More-serv.vue";
 
 export default {
   components: { More },
-
+ computed: {
+    getActiveTab(){
+      let image = this.services.find(item => {
+        return item.active === true
+      })
+      
+      return image
+    }
+  },
+  methods: {
+    changeTab(index){
+      this.services.forEach(item =>{
+        item.active = false
+      })
+      this.services[index].active = true
+    }
+  },
   data() {
     return {
+       services: [
+        {
+          title: 'Бензовозы',
+          img: require('@/assets/img/section/benz.png'),
+          active: true,
+          descr: 'Бензовооз — тип специальной техники, предназначенной для перевозки нефтепродуктов. Как и все коммерческие грузовые машины, бензовоз предназначен для транспортировки',
+          link: '/benz'
+        },
+        {
+          title: 'Негабаритные грузы',
+          img: require('@/assets/img/section/over.png'),
+          active: false,
+          descr: 'Негабари́тный груз — это груз, габариты которого превышают допустимые при транспортировке размеры и установленные правилами дорожного движения нормы. Другими словами, негабаритный размер — это такой размер груза, который невозможно поместить в стандартное транспортное средство',
+          link: '/negab'
+        },
+        {
+          title: 'Контейнерные перевозки',
+          img: require('@/assets/img/section/cont.png'),
+          active: false,
+          descr: 'Контейнерные перевозки — грузоперевозки с использованием стандартных контейнеров. Позволяют выполнять бесперегрузочную доставку товаров от отправителя к получателю, тем самым значительно сократив объём промежуточных погрузочно-разгрузочных работ.',
+          link: '/container'
+        }
+      ],
       meets: [
         {
           id: 1,
@@ -148,14 +165,6 @@ export default {
       ],
     };
   },
-  methods: {
-       disp(myid){
-            document.getElementById('r1').style.display = "none";
-            document.getElementById('r2').style.display = "none";
-            document.getElementById('r3').style.display = "none";
-            document.getElementById(myid).style.display = "block";
-        }
-  }
 };
 </script>
 
