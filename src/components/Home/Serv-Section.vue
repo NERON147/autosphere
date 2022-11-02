@@ -12,15 +12,41 @@
         <div class="serv-demo">
           <div class="demo-items">
             <div class="select-demo">
-              <p class="select-item-1">Бензовозы</p>
-              <p class="select-middle-item">Негабаритные грузы</p>
-              <p class="select-last-item">Контейнерные перевозки</p>
+              <p class="select-item-1" v-on:click="disp('r1')">Бензовозы</p>
+              <p class="select-middle-item" v-on:click="disp('r2')">Негабаритные грузы</p>
+              <p class="select-last-item" v-on:click="disp('r3')">Контейнерные перевозки</p>
             </div>
-            <img src="@/assets/img/section/benz.png" alt="" class="benz"/>
+            <img  src="@/assets/img/section/benz.png" alt="" class="benz"/>
+            <!-- <img id="r2" style="display:none;" src="@/assets/img/section/benz.png" alt="" class="benz"/>
+            <img id="r3" style="display:none;" src="@/assets/img/section/benz.png" alt="" class="benz"/> -->
           </div>
 
-          <div class="demo-text">
+          <div class="demo-text" id="r1">
             <div class="demo-text-title">Перевозки бензовозом</div>
+            <div class="demo-main-text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
+              necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
+              mollitia soluta iure ratione, culpa aliquid dolorem amet laborum
+              tempora et recusandae. Quasi magni quae soluta omnis eligendi
+              incidunt, modi! Eum, sunt, neque! Perferendis exercitationem, eum
+              nihil voluptatibus inventore suscipit, aliquid aut officiis.
+            </div>
+            <button class="serv-btn">Все наши услуги</button>
+          </div>
+           <div class="demo-text" id="r2" style="display:none;">
+            <div class="demo-text-title">Перевозки каблучком</div>
+            <div class="demo-main-text">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
+              necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
+              mollitia soluta iure ratione, culpa aliquid dolorem amet laborum
+              tempora et recusandae. Quasi magni quae soluta omnis eligendi
+              incidunt, modi! Eum, sunt, neque! Perferendis exercitationem, eum
+              nihil voluptatibus inventore suscipit, aliquid aut officiis.
+            </div>
+            <button class="serv-btn">Все наши услуги</button>
+          </div>
+           <div class="demo-text" id="r3" style="display:none;">
+            <div class="demo-text-title">Перевозки тягачом</div>
             <div class="demo-main-text">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
               necessitatibus ullam. Nam maxime, molestiae. Sit neque possimus
@@ -122,6 +148,14 @@ export default {
       ],
     };
   },
+  methods: {
+       disp(myid){
+            document.getElementById('r1').style.display = "none";
+            document.getElementById('r2').style.display = "none";
+            document.getElementById('r3').style.display = "none";
+            document.getElementById(myid).style.display = "block";
+        }
+  }
 };
 </script>
 

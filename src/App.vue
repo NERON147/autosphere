@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navigation></Navigation>
-    <transition name="fade" mode="out-in" :duration="{ enter: 500, leave: 500 }">
+    <transition name="fade" mode="out-in" >
       <router-view></router-view>
     </transition>
   </div> 
@@ -18,12 +18,16 @@ export default {
 
 
 <style>
-.scale-enter-active,
-.scale-leave-active {
-  transition: all 0.3s;
+.fade-enter-active, .fade-leave-active {
+  transition-property: opacity;
+  transition-duration: .25s;
 }
-.scale-enter-from,
-.scale-leave-to {
-  opacity: 0;
+
+.fade-enter-active {
+  transition-delay: .25s;
+}
+
+.fade-enter, .fade-leave-active {
+  opacity: 0
 }
 </style>

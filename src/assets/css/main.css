@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 @import '@/assets/css/reset.css';
+@import '@/assets/css/humb.css';
+
 
 html {
     margin: 0 auto;
@@ -25,6 +27,11 @@ a:hover {
 .container {
     max-width: 1170px;
 }
+
+/* .fix-nav {
+    position: fixed;
+    z-index: 999;
+} */
 
 .nav-wrapper {
     margin-top: 28px;
@@ -421,6 +428,14 @@ a:hover {
 .footer-item4{
     display: none;
 }
+
+.null {
+    display: none;
+}
+
+/* .footer-item1 {
+    width: 280px;
+} */
 @media (max-width: 1120px) {
 
     .question-btn {
@@ -437,6 +452,7 @@ a:hover {
         margin-bottom: 40px;
         max-width: 333px;
     }
+
     
 }
 
@@ -471,6 +487,11 @@ a:hover {
 
         .card-center {
             padding-bottom: 80px;
+        }
+
+        .null {
+            display: block;
+            padding-left: 130px;
         }
 }
 
@@ -528,6 +549,16 @@ a:hover {
             padding-top: 100px;
             line-height: 50px;
         }
+}
+
+@media (max-width: 550px) {
+    .tel {
+        display: none;
+    }
+
+    .null {
+        padding-left: 0;
+    }
 }
 
 @media (max-width: 500px) {
