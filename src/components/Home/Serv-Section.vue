@@ -17,8 +17,6 @@
               :class="{ active : item.active }" @click="changeTab(index)">
                 {{item.title}}
               </p>
-              <!-- <p class="select-middle-item">Негабаритные грузы</p>
-              <p class="select-last-item">Контейнерные перевозки</p> -->
             </div>
             <img :src="getActiveTab.img" alt="" class="benz"/>
           </div>
@@ -104,7 +102,6 @@ export default {
       let image = this.services.find(item => {
         return item.active === true
       })
-      
       return image
     }
   },

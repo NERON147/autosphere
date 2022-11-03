@@ -55,7 +55,7 @@ methods: {
   document.getElementById("nav").classList.toggle("change");
   document.getElementById("menu-bg").classList.toggle("change-bg");
   document.querySelector('body').classList.toggle("scroll-hidden")
-}
+},
 
 }
 
