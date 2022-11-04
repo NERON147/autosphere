@@ -4,12 +4,12 @@
       <nav class="nav-wrapper">
         <div class="nav-items">
           <div id="menu">
-            <div id="menu-bar" v-on:click="menuOnClick()">
+            <div id="menu-bar" @click="menuOnClick" :class="{ change : mobileMenu }">
               <div id="bar1" class="bar"></div>
               <div id="bar2" class="bar"></div>
               <div id="bar3" class="bar"></div>
             </div>
-            <nav class="nav" id="nav">
+            <nav class="nav" id="nav" :class="{ change : mobileMenu }" @click="menuOnClick">
               <ul>
                 <li>
                   <router-link to="/" class="a">Гланая</router-link>
@@ -29,7 +29,7 @@
             </nav>
           </div>
 
-          <div class="menu-bg" id="menu-bg"></div>
+          <div class="menu-bg" id="menu-bg" :class="{ 'change-bg' : mobileMenu }"></div>
           <div class="null"></div>
           <router-link to="/"><img src="@/assets/img/header/logo.svg" alt="" /></router-link>
 
@@ -52,24 +52,17 @@
 
 <script>
 export default {
-
   data() {
     return {
-      
+      mobileMenu: false
     }
   },
-
-methods: {
-   menuOnClick() {
-  document.getElementById("menu-bar").classList.toggle("change");
-  document.getElementById("nav").classList.toggle("change");
-  document.getElementById("menu-bg").classList.toggle("change-bg");
-  document.querySelector('body').classList.toggle("scroll-hidden")
-},
-
-}
-
-
+  methods: {
+    menuOnClick(){
+      this.mobileMenu = !this.mobileMenu
+      document.querySelector('body').classList.toggle("scroll-hidden")
+    }
+  }
 }
 </script>
 
