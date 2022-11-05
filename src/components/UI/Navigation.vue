@@ -12,17 +12,17 @@
             <nav class="nav" id="nav" :class="{ change : mobileMenu }" @click="menuOnClick">
               <ul>
                 <li>
-                  <router-link to="/" class="a">Гланая</router-link>
+                  <router-link to="/">Гланая</router-link>
                 </li>
                 <li>
-                  <router-link to="/about" class="a">О компании</router-link>
+                  <router-link to="/about">О компании</router-link>
                 </li>
                 <li>
-                  <router-link to="/services" class="a">Услуги <img src="@/assets/img/header/arrow-l.svg" alt="" />
+                  <router-link to="/services">Услуги <img src="@/assets/img/header/arrow-l.svg" alt="" />
                   </router-link>
                 </li>
                 <li>
-                  <router-link to="/contacts" class="a">Контакты</router-link>
+                  <router-link to="/contacts">Контакты</router-link>
                 </li>
                 <li>8 800 666-33-22</li>
               </ul>
