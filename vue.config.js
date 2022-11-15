@@ -3,8 +3,10 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 
-module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-    ? '/autotest/'
-    : '/'
-}
+// module.exports = {
+//   publicPath: process.env.NODE_ENV === 'production'
+//     ? ''
+//     : '/',
+//     assetsDir: '',
+//     productionSourceMap: false
+// }
