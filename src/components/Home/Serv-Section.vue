@@ -44,7 +44,7 @@
               компании:
             </div>
             <div class="meet-items">
-              <div class="row">
+              <div class="row gy-5">
                 <div
                   class="col-6 col-lg-3 for-width"
                   v-for="item in meets"

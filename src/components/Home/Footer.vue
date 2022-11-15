@@ -12,7 +12,7 @@
                         компания
                     </div>
                 </div>
-                <div class="footer-line"></div>
+                <div class="footer-line line1"></div>
                 <div class="footer-item2">
                     <div class="footer-title">
                         Меню
