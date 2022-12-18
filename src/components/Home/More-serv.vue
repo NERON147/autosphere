@@ -8,9 +8,9 @@
             К каждому клиенту индивидуальный подход
           </div>
         </div>
-        <div class="row offset-1 offset-sm-3 offset-md-1 offset-lg-0 card-center">
+        <div class="row card-center">
           <div class="col-md-6 col-lg-3" v-for="card in cards" :key="card.id">
-            <div class="card-wrapper">
+            <div class="card-wrapper card-more">
               <div class="card-main">
                 <div class="card-title">
                   {{ card.title }}

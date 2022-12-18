@@ -267,6 +267,10 @@ a:hover {
 
 }
 
+.card-more {
+    margin: 0 auto;
+}
+
 .card-wrapper {
     margin-top: 73px;
     height: 390px;
